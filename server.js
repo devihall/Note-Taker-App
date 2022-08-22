@@ -9,10 +9,12 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-///////parse incoming string or array data//////
+///////middleware to parse incoming string or array data//////
 app.use(express.urlencoded({ extended: true }));
-// parse incoming JSON data
+// middleware to parse incoming JSON data
 app.use(express.json());
+////middleware to make static files available////
+app.use(express.static("public"));
 
 ///////handle taking data from req.body and adding to db.json file////
 function createNewNote(body, notesArray){
@@ -48,6 +50,12 @@ app.post('/api/notes', (req,res) => {
 
   res.json(req.body)
 });
+
+////route to serve static files/////
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./Develop/public/notes.html"));
+});
+
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`)

@@ -71,6 +71,27 @@ const handleNoteSave = () => {
     title: noteTitle.value,
     text: noteText.value,
   };
+
+
+// fetch("/api/notes", {
+//   method: "POST",
+//   headers: {
+//     Accept: "application/json",
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify(animalObject),
+// })
+//   .then((response) => {
+//     if (response.ok) {
+//       return response.json();
+//     }
+//     alert("Error: " + response.statusText);
+//   })
+//   .then((postResponse) => {
+//     console.log(postResponse);
+//     alert("You added a new note!");
+//   });
+
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
@@ -105,7 +126,7 @@ const handleNoteView = (e) => {
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
   activeNote = {};
-  
+
   renderActiveNote();
 };
 

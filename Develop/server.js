@@ -3,6 +3,7 @@ const path = require("path");
 
 const express = require("express");
 const { notes } = require("./db/db");
+console.log('notes is', notes);
 
 const PORT = process.env.PORT || 3001;
 
@@ -36,25 +37,41 @@ app.get("/api/notes", (req, res) => {
 
 /////handle request to post new notes to the server////
 app.post("/api/notes", (req, res) => {
-  ///req.body is the incoming content///////
+  ///req.body is the incoming content///
   console.log(req.body);
-  ///set ID based the next index of array////
+  ///set ID based the next index of array///
   req.body.id = notes.length.toString();
   ////add note to db.json file and notesArray//
   const note = createNewNote(req.body, notes);
   res.json(req.body);
 });
 
-////route to serve static files/////
+//////////handle request to delete a note/////////////////
+app.delete('/api/notes/:NoteId', (req, res) =>{
+  //access note by using query parameter NoteId
+const noteId = req.params.NoteId;
+
+  //read notes in db.json file
+const  fileNotes = fs.readFileSync("./db/db.json");
+
+//parse notes in db.json
+const { notes: notesInFile } = JSON.parse(fileNotes);
+
+//remove/splice deleted note from db.json file
+notesInFile.splice(noteId,1);
+
+//stringify and re-write notes in db.json file
+fs.writeFileSync("./db/db.json", JSON.stringify({ notes: notesInFile }));
+})
+
+//////////route to serve static files////////////////////
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
-// });
+
 
 app.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);

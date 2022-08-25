@@ -1,23 +1,9 @@
 {
   "notes": [
     {
-      "title": "Test Title",
-      "text": "Test text"
-    },
-    {
-      "dentist": "appointment",
-      "questions": "what causes cavities?",
-      "id": "1"
-    },
-    {
-      "test": "test",
-      "questions": "test",
-      "id": "2"
-    },
-    {
-      "meeting minutes": "boring meeting",
-      "less meetings": "send email",
-      "id": "3"
+      "title": "test",
+      "text": "test",
+      "id": "0"
     }
   ]
 }

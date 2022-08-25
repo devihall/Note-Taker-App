@@ -1,9 +1,9 @@
-## Note- Taker- App
+# Note- Taker- App
 
-# Link 
+## Link 
 https://warm-ocean-34807.herokuapp.com/
 
-# Description
+## Description
 An application that can be used to write and save notes. This application uses an Express.js back end and saves and retrieves notes data from a JSON file.
 
 This application will be useful for business owners and managers, to be able to write and save notes so that they can organize their thoughts and keep track of tasks.
@@ -20,19 +20,19 @@ The existing note in the list in the left-hand column can be clicked and that no
 
 To enter a new note, you can click on the Write icon in the navigation at the top of the page.
 
-# Installation
+## Installation
 N.A
 
-# Usage
+## Usage
 Business Manager
 
-# License
+## License
 Open Source
 
-Credits
+## Credits
 Node Package Manager, Express.js
 
-
+## Screenshots
 <img width="914" alt="Screen Shot 2022-08-25 at 1 56 47 PM" src="https://user-images.githubusercontent.com/107077794/186736111-4abdf5bc-6fa9-4d42-8fe8-d53bc1839139.png">
 
 
